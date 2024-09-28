@@ -3,6 +3,23 @@ package _00_Intro_to_Linked_Lists;
 public class LinkedListDemo {
 
     public static void main(String[] args) {
+    LinkedList<Integer> list = new LinkedList<Integer>();
+    list.add(5);
+    list.add(4);
+    list.add(3);
+    list.add(2);
+    list.add(1);
+    list.add(0);
+    System.out.println(list.getHead().getValue());
+    System.out.println(list.getTail().getValue());
+    Node<Integer> n = list.getHead();
+    while(n!=null) {
+   
+    	n.setValue(n.getValue()+1);
+     	System.out.println(n.getValue());
+    	n=n.getNext();
+    	
+    }
 
         /*
          * A LinkedList is a linear data structure, but unlike an ArrayList or

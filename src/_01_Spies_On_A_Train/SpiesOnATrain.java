@@ -22,7 +22,12 @@ public class SpiesOnATrain {
      * statements.
      */
     String findIntel(LinkedList<TrainCar> train, String[] clues) {
-
+    	Node<TrainCar> n = train.getHead();
+        while(n!=null) {
+       
+        
+        	
+        }
         return "";
 
     }

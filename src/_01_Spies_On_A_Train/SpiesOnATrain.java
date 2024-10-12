@@ -1,6 +1,7 @@
 package _01_Spies_On_A_Train;
 
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import _00_Intro_to_Linked_Lists.LinkedList;
 import _00_Intro_to_Linked_Lists.Node;
@@ -22,7 +23,8 @@ public class SpiesOnATrain {
 	 * statements.
 	 */
 	String findIntel(LinkedList<TrainCar> train, String[] clues) {
-
+int greatest = 0;
+String name=null;
 		HashMap<String,Integer> counts= new HashMap<>();
 
 
@@ -31,22 +33,30 @@ public class SpiesOnATrain {
 
 			String response =n.getValue().questionPassenger();
 			for(String e:clues) {
+				
 				if(response.contains(e)) {
 					String[] words=response.split(" ");
 					if(counts.containsKey(words[13])) {
-						counts.put(words[13], counts.get(words[13] + 1));
+						counts.put(words[13], counts.get(words[13]) + 1  );
 					}else {
 						counts.put(words[13],1);
 					}
 				}
 			}
-			for (int i = 0; i < counts.entrySet().size(); i++) {
-				
-			}
+		
+		 
 
 			n=n.getNext();
 		}
-		return "";
+		System.out.println(counts.entrySet().size() + " ****************");
+		for(Entry<String,Integer>entry:counts.entrySet()) {
+			System.out.println(entry.getKey() + " " + entry.getValue());
+			if(entry.getValue()>greatest) {
+				greatest=entry.getValue();
+				name=entry.getKey();
+			}
+		}
+		return name;
 
 	}
 
